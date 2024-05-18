@@ -1,0 +1,181 @@
+@keyframes background-position {
+    0% {
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+}
+
+.calendar-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: min-content;
+    height: min-content;
+
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.253);
+    border-radius: 10px;
+    padding: 10px;
+    
+    overflow: hidden;
+    transition: .2s;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.156), white, rgba(255, 255, 255, 0.169));
+        background-size: 400%;
+        animation: background-position 1s infinite;
+        
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &[load]::after{
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    & .calendar-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: solid 1px gray;
+
+        & #month-picker {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        & .year-picker {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            & i {
+                margin: 3px;
+                padding: 10px 12px;
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: gainsboro;
+                }
+            }
+        }
+    }
+
+    & .calendar-body {
+
+        & .calendar-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            & div {
+                margin: 3px;
+                padding: 5px;
+
+                font-weight: 550;
+                color: rgb(86, 86, 86);
+            }
+        }
+
+        & .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            & div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+                cursor: pointer;
+
+                margin: 3px;
+                padding: 8px;
+                border-radius: 5px;
+                font-weight: 500;
+
+                color: rgb(68, 68, 68);
+                transition: .2s;
+                opacity: 0;
+
+                &[active] {
+                    pointer-events: all;
+                    background-color: rgb(238, 238, 238);
+                    opacity: 1;
+                }
+
+                &[active][selected]{
+                    background-color: rgb(32, 163, 32);
+                    color: white;
+                }
+
+                &:hover {
+                    background-color: gainsboro;
+                    opacity: 1;
+                }
+
+                &.curr-date{
+                    background-color: rgba(76, 72, 179, 0.767);
+                    color: white;
+                }
+            }
+        }
+    }
+
+    & .month-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-radius: 10px;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.655);
+        backdrop-filter: blur(5px);
+        align-self: center;
+        justify-self: center;
+        opacity: 0;
+        pointer-events: none;
+        
+    
+        &[open]{
+            opacity: 1;
+            pointer-events: all;
+            transition: .2s;
+        }
+
+        & div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 5px;
+
+            &:hover div {
+                background-color: rgba(0, 0, 0, 0.344);
+                color: white;
+            }
+
+            & div{
+                pointer-events: none;
+                padding: 5px 10px;
+                border-radius: 20px;
+                transition: .2s;
+                font-weight: 450;
+            }
+        }
+    }
+}

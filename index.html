@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberShop</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/calendar.css">
+</head>
+
+<body>
+    <i class="fa-solid fa-spinner"></i>
+    <i class="fa-solid fa-right-from-bracket" id="log-out"></i>
+
+    <section>
+        
+    </section>
+
+    <section id="client-sect">
+        <div class="calendar-div" load>
+            <div class="calendar-header">
+                <span id="month-picker"></span>
+                <div class="year-picker">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span id="year"></span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+            </div>
+
+            <div class="calendar-body">
+                <div class="calendar-week">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sab</div>
+                </div>
+                <div class="calendar-days">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                </div>
+
+            </div>
+            <div class="month-list">
+
+            </div>
+        </div>
+        <section>
+            <div class="agend-div" day="">
+                <div>08:00</div>
+                <div>10:00</div>
+                <div>12:00</div>
+                <div>14:00</div>
+                <div>16:00</div>
+                <div>18:00</div>
+            </div>
+        </section>
+    </section>
+
+    <script type="module" src="src/index.js"></script>
+    <script type="module" src="src/components/calendar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br" dark>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body load>
+    <i class="fa-solid fa-spinner"></i>
+    <main>
+        <h2>login <div class="open-pass"></div>
+        </h2>
+        <div class="log-div" id="log-div1" type="login">
+            <h3>Login</h3>
+
+            <div class="log-form">
+                <h4>email</h4>
+                <input type="email">
+
+                <div class="input-div">
+                    <h4>senha</h4>
+                    <input type="password">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+            </div>
+            <a href="#log-div2">Não tem uma conta!!</a>
+            <button>login</button>
+        </div>
+        <div class="log-div" id="log-div2" type="create-acount" open>
+            <h3>Novo usuário</h3>
+            <div class="log-form">
+                <h4>nome</h4>
+                <input type="text" value="Usuário 1" placeholder="Usuario">
+
+                <h4>email</h4>
+                <input type="email" value="teste1@gmail.com" placeholder="email">
+
+                <h4>Telefone 1</h4>
+                <input type="tel" value="(00) 0 0000-0000" placeholder="(00) 0 0000-0000">
+
+                <h4>Telefone 2</h4>
+                <input type="tel" value="(00) 0 0000-0000" placeholder="(00) 0 0000-0000">
+
+                <h4>Data nascimento</h4>
+                <input type="date" value="2000-12-20">
+
+                <!-- <div class="input-div">
+                    <input type="text">
+                </div> -->
+            </div>
+            <a href="#log-div1">Já tem uma conta!!</a>
+            <button>login</button>
+        </div>
+    </main>
+
+    <script type="module" src="src/login.js"></script>
+</body>
+
+</html>

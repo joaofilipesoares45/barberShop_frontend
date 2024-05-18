@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open sans';
+}
+
+:root {
+    --back-color: rgb(255, 255, 255);
+    --card-color: rgb(97, 110, 131);
+}
+
+:root[dark] {
+    --back-color: rgb(97, 110, 131);
+    --card-color: rgb(255, 255, 255);
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+html{
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--back-color);
+    user-select: none;
+
+    & i,
+    button {
+        cursor: pointer;
+    }
+
+    & .fa-spinner {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--back-color);
+        cursor: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 1;
+        pointer-events: all;
+        transition: .3s;
+
+        &::before {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--card-color);
+            animation: rotate 2s infinite;
+        }
+
+        &::after {
+            content: 'Carregando...';
+            font-family: 'open Sans';
+            font-weight: 500;
+            margin-top: 10px;
+            color: var(--card-color);
+            font-size: 1.2em;
+        }
+    }
+
+    &[load] {
+        & .fa-spinner {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    & #client-sect {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px; 
+        height: 50%;    
+
+        & .agend-div{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 25px;
+            position: relative;
+            padding: 10px;
+            border: solid 1px grey;
+
+            &::before{
+                content: attr(day);
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                top: -25px;
+                z-index: -1;
+            }
+
+            & div{
+                width: 100px;
+            }
+            
+        }
+    }
+
+}
