@@ -13,18 +13,18 @@
 <body load>
     <i class="fa-solid fa-spinner"></i>
     <main>
-        <h2>login <div class="open-pass"></div>
+        <h2>login 
         </h2>
         <div class="log-div" id="log-div1" type="login">
-            <h3>Login</h3>
+            <h3>Login <div class="open-pass"></div></h3>
 
             <div class="log-form">
                 <h4>email</h4>
                 <input type="email">
 
-                <div class="input-div">
+                <div class="emp-inputs">
                     <h4>senha</h4>
-                    <input type="password">
+                    <input type="password" name="senha">
                     <i class="fa-solid fa-eye"></i>
                 </div>
             </div>
@@ -35,22 +35,26 @@
             <h3>Novo usuário</h3>
             <div class="log-form">
                 <h4>nome</h4>
-                <input type="text" value="Usuário 1" placeholder="Usuario">
+                <input type="text" placeholder="Usuario">
 
                 <h4>email</h4>
-                <input type="email" value="teste1@gmail.com" placeholder="email">
+                <input type="email" placeholder="email">
 
                 <h4>Telefone 1</h4>
-                <input type="tel" value="(00) 0 0000-0000" placeholder="(00) 0 0000-0000">
+                <input type="tel" placeholder="(00) 0 0000-0000" name="telefone1" maxlength="11">
 
                 <h4>Telefone 2</h4>
-                <input type="tel" value="(00) 0 0000-0000" placeholder="(00) 0 0000-0000">
+                <input type="tel" placeholder="(00) 0 0000-0000" name="telefone2" maxlength="11">
 
                 <h4>Data nascimento</h4>
-                <input type="date" value="2000-12-20">
+                <input type="date">
+                <!-- <div class="emp-inputs">
+                    <h4>cpf</h4>
+                    <input type="text" placeholder="000.000.000.01" name="cpf" maxlength="11" pattern="[0-9]{11}">
 
-                <!-- <div class="input-div">
-                    <input type="text">
+                    <h4>senha</h4>
+                    <input type="password" name="senha">
+                    <i class="fa-solid fa-eye"></i>
                 </div> -->
             </div>
             <a href="#log-div1">Já tem uma conta!!</a>

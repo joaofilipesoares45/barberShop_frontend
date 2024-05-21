@@ -39,13 +39,12 @@ const generateCalendar = (month, year) => {
 
             day.setAttribute('date', `${(i - first_day.getDay() + 1).toString().padStart(2, '0')}-${(month + 1).toString().padStart(2, '0')}-${year}`)
 
-
             day.innerHTML = i - first_day.getDay() + 1
 
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date');
 
-                apiconnect('get', 'database').then(res => res.json())
+                apiconnect('get', 'database')
                     .then(data => {
                         getAgendamentos(data.agenda, `${(i - first_day.getDay() + 1).toString().padStart(2, '0')}-${(month + 1).toString().padStart(2, '0')}-${year}`.split('-'))
                     })
@@ -105,7 +104,7 @@ document.querySelector('body').addEventListener('click', (e) => {
         dateConvert = dateConvert.reverse()
 
         calendar.removeAttribute('load')
-        apiconnect('get', 'database').then(res => res.json())
+        apiconnect('get', 'database')
             .then(data => {
                 calendar.setAttribute('load', '')
                 getAgendamentos(data.agenda, date)

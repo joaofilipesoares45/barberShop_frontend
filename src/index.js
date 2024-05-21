@@ -1,13 +1,11 @@
-import { apiconnect, newService } from "./code/methods.js";
+import { apiconnect } from "./code/methods.js";
 
-let database 
 const getData = async () => {
-    apiconnect('get', 'database')
-        .then(res => res.json())
+    return await apiconnect('get', 'database')
         .then(data => {
+            console.clear()
             document.body.setAttribute('load', '')
-            database = data
-            console.log(data);
+            return data
         }).catch(error => {
             getData()
             console.clear()
@@ -17,10 +15,10 @@ const getData = async () => {
 
 document.body.onload = () => {
     if (localStorage.CurrentUser === undefined) {
-        window.location = 'login.html'
+        window.location = `login.html`
     }else{
         if (JSON.parse(localStorage.CurrentUser).tipo !== 'cliente') {
-            document.body.removeChild(document.querySelector('#client-sect'))
+            // document.body.removeChild(document.querySelector('#client-sect'))
         }
     }
     getData()
@@ -31,6 +29,14 @@ document.body.onclick = async (e) => {
     
     if (target.tagName === 'I' && target.id === 'log-out') {
         localStorage.removeItem('CurrentUser')
-        window.location = 'index.html'
+        window.location = `login.html?cpy=${localStorage.cpy}`
+    }
+
+    if (target.classList[1] === 'fa-trash') {
+        const id = JSON.parse(localStorage.CurrentUser).id
+        console.log(id);
+        apiconnect('delete', 'remove-user', {id: id})
+        localStorage.removeItem('CurrentUser')
+        window.location = `login.html?cpy=${localStorage.cpy}`
     }
 }
